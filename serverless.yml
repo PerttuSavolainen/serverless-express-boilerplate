@@ -1,0 +1,15 @@
+service: serverless-express-boilerplate
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: ${opt:region, "eu-north-1"}
+  profile: ${opt:profile}
+  stage: ${opt:stage, "dev"}
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

@@ -2,10 +2,14 @@ service: serverless-express-boilerplate
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   region: ${opt:region, "eu-north-1"}
   profile: ${opt:profile}
   stage: ${opt:stage, "dev"}
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-optimize
 
 functions:
   app:

@@ -6,10 +6,19 @@ provider:
   region: ${opt:region, "eu-north-1"}
   profile: ${opt:profile}
   stage: ${opt:stage, "dev"}
+  tracing: true # enable tracing
+  iamRoleStatements:
+    - Effect: "Allow" # xray permissions (required)
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
 
 plugins:
   - serverless-plugin-typescript
   - serverless-plugin-optimize
+  - serverless-plugin-tracing
   - serverless-offline
 
 functions:

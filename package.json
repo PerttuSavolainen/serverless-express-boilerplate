@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sls offline",
+    "start": "sls offline -s dev",
+    "debug": "export SLS_DEBUG=* && node --inspect ./node_modules/.bin/serverless offline -s dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy:dev": "sls deploy --stage dev",
     "remove:dev": "sls remove --stage dev",

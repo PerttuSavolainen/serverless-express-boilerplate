@@ -14,4 +14,7 @@ app
   // .get('/error', thrower)
 ;
 
+// export app for tests
+module.exports.app = app;
+
 module.exports.handler = serverless(app);

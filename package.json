@@ -10,7 +10,8 @@
     "deploy:dev": "sls deploy --stage dev",
     "remove:dev": "sls remove --stage dev",
     "deploy:prod": "sls deploy --stage prod",
-    "remove:prod": "sls remove --stage prod"
+    "remove:prod": "sls remove --stage prod",
+    "release": "standard-version"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +36,7 @@
     "serverless-plugin-optimize": "^4.0.2-rc.1",
     "serverless-plugin-tracing": "^2.0.0",
     "serverless-plugin-typescript": "1.1.7",
+    "standard-version": "^7.0.0",
     "ts-node": "^8.3.0",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"

@@ -1,12 +1,15 @@
 service: serverless-express-boilerplate
+frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs14.x
   region: ${opt:region, "eu-north-1"}
-  profile: ${opt:profile}
   stage: ${opt:stage, "dev"}
-  tracing: true # enable tracing
+  # enable tracing
+  tracing:
+    lambda: true
+  lambdaHashingVersion: 20201221
   iamRoleStatements:
     - Effect: "Allow" # xray permissions (required)
       Action:
@@ -26,5 +29,5 @@ functions:
     handler: index.handler
     timeout: 10
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - httpApi: ANY /
+      - httpApi: ANY /{proxy+}

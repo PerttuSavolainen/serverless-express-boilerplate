@@ -1,4 +1,4 @@
-import serverless =  require('serverless-http');
+import serverless = require('serverless-http');
 import * as express from 'express';
 // source-map support
 import 'source-map-support/register';
@@ -11,8 +11,8 @@ const app = express();
 app
   .get('/', exampleLambda)
   // chain the endpoints like this
-  // .get('/error', thrower)
-;
+  .get('/some/endpoint', exampleLambda)
+  .get('/some/random/endpoint/23', exampleLambda);
 
 // export app for tests
 module.exports.app = app;
